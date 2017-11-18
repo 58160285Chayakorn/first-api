@@ -47,8 +47,9 @@ app.get('/students/:id', (req, res) => {
 
 app.post('/students', (req, res)=> {
     let student = req.body
+    student.id = students.length + 1
     students.push(student)
-    res.json(student)
+    res.status(201).json(student)
 })
 
 
