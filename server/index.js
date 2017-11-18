@@ -13,7 +13,7 @@ let students = [
 ]
 
 
-app.use(bodyParser.urlencoded({ extended:false}))
+app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
 app.get('/greeting', (req, res) => {
@@ -32,11 +32,16 @@ app.get('/greeting', (req, res) => {
 })
 
 app.get('/students', (req, res) => {
-
-    res.json(students)
+    res.status(201).json(students)
 })
 
 app.get('/students/:id', (req, res) => {
+     let id = req.params.id
+
+    if(!id || isNaN(id)){
+        res.status(400).json({ error_massage: 'This api required `id` parameter'})
+        return 
+    }
     res.json(students[req.params.id - 1])
 })
 
