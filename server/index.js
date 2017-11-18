@@ -3,11 +3,11 @@ const app = express()
 const bodyParser = require('body-parser')
 let students = [
     {
-        id: 1, name: 'Chayakorn', u: 'buu', year: 2001
+        id: 1, name: 'Chayakorn', u: 'buu', year: 2001, faculty: 'IT'
     },
 
     {
-        id: 2, name: 'Fill', u: 'tu', year: 1999
+        id: 2, name: 'Fill', u: 'tu', year: 1999, faculty: 'com-sci'
     }
 
 ]

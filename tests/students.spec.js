@@ -6,6 +6,11 @@ describe('GET /students', () => {
         request(app).get('/students').expect(201).then((res)=> {
             let students = res.body
             expect(students instanceof Array).toBeTruthy()
+
+            let student = students[0]
+            expect(student.id).toBeTruthy()
+            expect(student.name).toBeTruthy()
+            expect(student.faculty).toBeTruthy() 
             done()
         })
 
